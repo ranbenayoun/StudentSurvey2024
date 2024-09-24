@@ -3,6 +3,9 @@ window.onload = function() {
     // Select the canvas element by its ID where the pie chart will be rendered
     const ctx = document.getElementById('myPieChart').getContext('2d');
 
+
+
+    
     // Create the pie chart using Chart.js
     const myPieChart = new Chart(ctx, {
         type: 'pie',  // Define the type of chart
