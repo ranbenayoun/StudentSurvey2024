@@ -17,3 +17,11 @@ canvas {
     margin: auto;
     display: block;  /* Center the canvas */
 }
+
+#overview {
+    transition: transform 0.3s;
+}
+
+#overview:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
