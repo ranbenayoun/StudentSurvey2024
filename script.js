@@ -5,7 +5,7 @@ window.onload = function() {
     const myPieChart = new Chart(ctx, {
         type: 'pie',  // Define the type of chart
         data: {
-            labels: ['ו&ו', 'ניהול פרויקטים', 'מו"פ', 'בקרת איכות', 'שירות לקוחות'], // Categories in Hebrew
+            labels: ['V&V', 'ניהול פרויקטים', 'מו"פ', 'בקרת איכות', 'שירות לקוחות'], // Categories in Hebrew
             datasets: [{
                 label: 'פיזור שכר ממוצע',
                 data: [44, 19, 17, 6, 5],  // Sample data (replace this with your data)
