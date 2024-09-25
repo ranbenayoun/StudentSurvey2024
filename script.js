@@ -57,3 +57,43 @@ window.onload = function() {
     // Call the typeWriter function to start typing
     typeWriter();
 };
+
+
+const ctx = document.getElementById('salaryChart').getContext('2d');
+const salaryChart = new Chart(ctx, {
+    type: 'bar',  // Bar chart type
+    data: {
+        labels: ['יצור', 'ניהול פרויקטים', 'בדיקות (V&V)', 'Application Specialist', 'איכות ורגולציה (QA)', 'שירות לקוחות (Customer Service)', 'מחקר ופיתוח (R&D)', 'אלגוריתמיקה'],
+        datasets: [{
+            label: '₪ שכר שעתי ממוצע',
+            data: [48, 60, 64, 65, 67, 68, 68, 89],  // Salary data
+            backgroundColor: '#4285F4',  // Bar color
+            borderColor: '#357AE8',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    callback: function(value) { return '₪ ' + value; }  // Show ₪ symbol
+                }
+            }
+        },
+        animation: {
+            duration: 2000,  // 2-second animation
+            easing: 'easeOutBounce',  // Bounce effect
+        },
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        return '₪ ' + tooltipItem.raw;  // Tooltip shows with ₪ symbol
+                    }
+                }
+            }
+        }
+    }
+});
