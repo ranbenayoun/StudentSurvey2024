@@ -1,9 +1,3 @@
-body {
-    font-family: 'Arial', sans-serif;
-    direction: rtl;  /* Force RTL text direction */
-    text-align: right;  /* Align text to the right */
-}
-
 h1, h2 {
     margin-right: 20px;
     color: #333;
@@ -17,7 +11,10 @@ h1, h2 {
 canvas {
     margin: auto;
     display: block;  /* Center the canvas */
-}
+    width: 100%;    /* Make it fill the container */
+    height: 400px;  /* Set a fixed height */
+    max-width: 1000px; /* Set a maximum width */
+    }
 
 #overview {
     transition: transform 0.3s;
@@ -26,3 +23,28 @@ canvas {
 #overview:hover {
     transform: scale(1.1); /* Zoom effect on hover */
 }
+
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .container {
+    text-align: right;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  
+  ul {
+    list-style-type: disc;
+    padding: 0;
+  }
+  
+  li {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
