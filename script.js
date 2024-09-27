@@ -34,13 +34,9 @@ window.onload = function() {
                     display: false  // Hide legend
                 },
                 tooltip: {
-                    enabled: true,  // Enable tooltips when hovering over sections
                     callbacks: {
-                        label: function(tooltipItem, data) {
-                            const dataset = data.datasets[tooltipItem.datasetIndex];
-                            const currentValue = dataset.data[tooltipItem.index];
-                            const percentage = Math.floor((currentValue / dataset._meta[0].total) * 100 + 0.5);  // Calculate percentage
-                            return percentage + '%';  // Show percentage in tooltip
+                        label: function(tooltipItem) {
+                            return '%' + tooltipItem.raw;  // Tooltip shows with ₪ symbol
                         }
                     }
                 },
@@ -108,16 +104,140 @@ window.onload = function() {
                 },
                 datalabels: {
                     display: true,
-                    color: 'black',
+                    color: 'black', // Adjust color as needed
                     anchor: 'end',
-                    align: 'top',
-                    formatter: (value) => '₪ ' + value,  // Show the value above each bar
+                    align: 'center',
+                    offset: 5,
+                    formatter: (value, context) => {
+                        const dataset = context.dataset;
+                        const total = dataset.data.reduce((acc, val) => acc + val, 0);
+                        const percentage = Math.round((value / total) * 100);
+                        return `${percentage}%`;
+                    }
                 }
             },
             barPercentage: 0.5,  // Full width bars
             categoryPercentage: 1.0  // Fit columns to the container
         }
     });
+
+    // Bar Chart for Satisfaction Levels
+    const ctxBar = document.getElementById('satisfactionChart').getContext('2d');
+    
+    const satisfactionChart = new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: ['1', '2', '3', '4', '5'],  // Satisfaction levels
+            datasets: [{
+                label: 'שביעות רצון (%)',
+                data: [0, 0, 6, 38, 56],  // Values corresponding to satisfaction levels
+                backgroundColor: 'rgba(54, 162, 235, 0.7)',  // Bar color
+                borderColor: 'rgba(54, 162, 235, 1)',  // Bar border
+                borderWidth: 1  // Thickness of the border
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    grid: {
+                        display: false  // Hide x-axis grid lines
+                    },
+                    ticks: {
+                        autoSkip: false,  // Ensure all x-axis labels are displayed
+                        maxRotation: 0,  // Prevent rotating x-axis labels
+                        minRotation: 0,
+                    }
+                },
+                y: {
+                    display: false,  // Hide y-axis completely
+                    ticks: {
+                        beginAtZero: true,  // Start from zero
+                        callback: function(value) { return '₪ ' + value; }  // Show ₪ symbol
+                    },
+                    grid: {
+                        display: false  // Hide y-axis grid lines
+                    }
+                }
+            },
+            animation: {
+                duration: 1000,  // Animation duration in milliseconds
+                easing: 'easeOutBounce',  // Easing function for animation
+            },
+            plugins: {
+                legend: {
+                    display: false  // Hide legend
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.raw + '%';  // Show percentage in tooltip
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Chart 1: איך מצאתי את המשרה
+    const ctx4 = document.getElementById('howFound').getContext('2d');
+    const howFound = new Chart(ctx4, {
+        type: 'bar',
+        data: {
+            labels: ['שמעתי מחברים', 'קבוצת משרות בוואטסאפ', 'ירידי תעסוקה/מישהו מהתעשיה', 'חבר מביא חבר (מישהו מתוך החברה)', 'אתר החברה', 'אינסטגרם/פייסבוק/רשתות אחרות', 'LinkedIn'],
+            datasets: [{
+                data: [10, 14, 10, 29, 3, 6, 29],
+                backgroundColor: ['#000000', '#4285F4', '#DB4437', '#F4B400', '#0F9D58', '#FF6D00', '#00ACC1']
+            }]
+        },
+        options: {
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: {
+                    grid: { display: false }
+                },
+                y: {
+                    display: false
+                }
+            },
+            animation: {
+                duration: 1000,
+                easing: 'easeOutBounce'
+            }
+        }
+    });
+
+    // Chart 2: גודל החברה
+    const ctx5 = document.getElementById('companySize').getContext('2d');
+    new Chart(ctx5, {
+        type: 'bar',
+        data: {
+            labels: ['עד 15 עובדים', '15-50 עובדים', '51-100 עובדים', '101-200 עובדים', 'מעל 200 עובדים'],
+            datasets: [{
+                data: [20, 3, 17, 14, 45],
+                backgroundColor: ['#4285F4', '#4285F4', '#4285F4', '#4285F4', '#4285F4']
+            }]
+        },
+        options: {
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: {
+                    grid: { display: false }
+                },
+                y: {
+                    display: false
+                }
+            },
+            animation: {
+                duration: 1000,
+                easing: 'easeOutBounce'
+            }
+        }
+    });
+
 
     // Hebrew text from the image
     const textItems = [
@@ -159,7 +279,7 @@ window.onload = function() {
             if (currentItemIndex < textItems.length) {
                 const listItem = document.createElement('li');
                 dynamicList.appendChild(listItem); // Add empty list item
-                typeWriter(textItems[currentItemIndex], listItem, 30, addNextItem); // Type each letter
+                typeWriter(textItems[currentItemIndex], listItem, 20, addNextItem); // Type each letter
                 currentItemIndex++;
             }
         }
