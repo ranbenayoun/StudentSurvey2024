@@ -22,26 +22,39 @@
         <h1>תוצאות סקר תעשייה - יולי 2024</h1>
     </header>
 
-    <h1>שכר ממוצע לפי תפקיד</h1>
-    <canvas id="salaryChart" width="800" height="400"></canvas>
+    <h2>תחום העבודה</h2>
+    <canvas id="workField"></canvas>
 
     <h2>שכר ממוצע לפי תפקיד</h2>
-    <canvas id="myPieChart" width="250" height="200"></canvas>
+    <canvas id="salaryChart"></canvas>
 
     <h2>איך מצאתי את המשרה</h2>
     <canvas id="howFound"></canvas>
     
-    <h1>גודל החברה</h1>
-    <canvas id="companySize" width="800" height="400"></canvas>
+    <div style="display: flex; justify-content: space-around;">
+        <h2>מספר ימי עבודה בשבוע</h2>
+        <canvas id="workDaysPerWeek"></canvas>
+        <h2>הסמסטר בו התחלתי לעבוד</h2>
+        <canvas id="startingSemester"></canvas>
+      </div>
+      <h2>העבודה מתבצעת מ</h2>
+      <canvas id="workLocation"></canvas>
 
-    <section id="satisfaction-chart">
-        <h1>עד כמה אני מרוצה מהבחירה להתחיל לעבוד תוך כדי הלימודים בפקולטה</h1>
-        <canvas id="satisfactionChart" width="800" height="400"></canvas>
-    </section>  
-    
+
+    <h2>גודל החברה</h2>
+    <canvas id="companySize"></canvas>
+
+        <h2>עד כמה אני מרוצה מהבחירה להתחיל לעבוד תוך כדי הלימודים בפקולטה</h2>
+    <canvas id="satisfactionChart"></canvas>
+
+
     <section id="live-text">
         <h2>עצות מסטודנטים</h2>
         <ul id="dynamic-list"></ul>
+    </section>
+
+    <section id="thanks">
+        <p>תודה רבה לכלל הסטודנטים שהשתתפו בסקר ובהצלחה לכולם!</p>
     </section>
 
     <!-- Include your JavaScript file -->
