@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>סיכום סקר תעשייה סטודנטים יולי 2024</title>
   <style>
-    title {
-        text-align: center;
-    }
     body {
       font-family: Arial, sans-serif;
       direction: rtl;
@@ -15,20 +12,24 @@
     }
     header {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between; /* Distributes space between the images and heading */
       align-items: center;
       padding: 20px;
+      height: 150px; /* Height of the header */
     }
     header img {
-      height: 50px;
-      margin-left: 20px;
+      height: 75px;
+      margin: 0 20px; /* Space between images and the edges */
     }
     header h1 {
-      margin-right: auto;
+      flex-grow: 1; /* Allows the h1 to take available space */
+      text-align: center; /* Center the heading */
+      font-size: 3.5em; /* Increase text size */
+      margin: 0; /* Remove default margin */
     }
     .subtitle {
       font-size: 20px;
-      color: gray;
+      color: rgb(0, 0, 0);
     }
     .note {
       font-size: 12px;
@@ -39,6 +40,7 @@
       height: 400px;
       max-width: 1000px;
       margin: 20px auto;
+      margin-bottom: 40px; /* Optional: Adds more space between chart containers */
     }
     p {
       font-size: 18px;
@@ -54,21 +56,23 @@
       text-align: right;
       max-width: 800px;
       margin: 20px auto;
-      font-size: 16px;
+      font-size: 20px;
     }
     h1 {
       text-align: center;
     }
     h2 {
-      text-align: right;
+      text-align: center;
     }
     .student-experiences {
       text-align: right;
       max-width: 800px;
-      margin: 20px auto;
+      font-size: 20px; /* Increased font size */
     }
     .student-experiences ul {
-      padding-right: 20px;
+      padding-left: 0;
+      width: 100vw; /* Makes the list take the full width of the viewport */
+      box-sizing: border-box; /* Ensures padding and border are included in the element's total width */
     }
     .student-experiences li {
       margin-bottom: 10px;
@@ -76,7 +80,9 @@
     .thank-you {
       text-align: left;
       margin-top: 20px;
+      font-size: 40px; /* Increased font size */
     }
+
     @media only screen and (max-width: 600px) {
       .chart-container {
         height: 300px;
@@ -89,14 +95,16 @@
 
   <header>
     <img src="BioMedLogoHebColor.png" alt="BioMed Logo">
-    <img src="TechnionIIT Hebrew 3-lines.png" alt="Technion Logo">
     <h1>סיכום סקר תעשייה סטודנטים יולי 2024</h1>
+    <img src="TechnionIIT Hebrew 3-lines.png" alt="Technion Logo">
   </header>
+
+
 
   <p class="subtitle">מספר עונים: 64</p>
   <p class="note">*בסקר נכללו תשובות מסטודנטים שעובדים בתעשייה מחוץ למוסד הטכניון בלבד</p>
 
-  <h2>התפלגות תחומי העיסוק</h2>
+  <h2>תחום העבודה</h2>
   <div class="chart-container"><canvas id="industryChart"></canvas></div>
 
   <div class="salary-info">
@@ -104,7 +112,7 @@
     <p>שכר חציוני כללי: ₪ 65</p>
   </div>
 
-  <h2>שכר ממוצע לפי תחום</h2>
+  <h2>שכר ממוצע לפי תפקיד</h2>
   <div class="chart-container"><canvas id="salaryChart"></canvas></div>
 
   <div class="additional-benefits">
@@ -117,10 +125,10 @@
     </ul>
   </div>
 
-  <h2>איך מצאת את העבודה?</h2>
+  <h2>איך מצאת את המשרה?</h2>
   <div class="chart-container"><canvas id="recruitmentChart"></canvas></div>
 
-  <h2>באיזה סמסטר התחלת לעבוד?</h2>
+  <h2>סמסטר בו התחלתי לעבוד</h2>
   <div class="chart-container"><canvas id="semesterChart"></canvas></div>
 
   <h2>מספר ימי עבודה בשבוע</h2>
@@ -138,17 +146,17 @@
   <h2>סטודנטים משתפים מניסיון (סיכום):</h2>
   <div class="student-experiences">
     <ul>
-      <li><u>זמן חיפוש עבודה</u>: יש להתחיל לחפש **כמה שיותר מוקדם**, שכן תהליך החיפוש יכול להימשך זמן רב. מומלץ להתחיל לקראת סוף השנה השנייה או השלישית.</li>
-      <li><u>שילוב עבודה ולימודים</u>: עבודה במהלך התואר יכולה לעזור לסטודנטים **לצבור ניסיון**, להקל על הלימודים, ולספק תובנות חדשות. עם זאת, היא יכולה גם **להעמיס** ולכן ייתכן שיהיה צורך לפתוח עוד סמסטר או להתאים את מערכת הלימודים.</li>
-      <li><u>קשרים אישיים</u>: מומלץ לחפש עבודה דרך אנשים מהתעשייה ולא רק להגיש קורות חיים דרך אתרים. **קשרים אישיים** מעלים את הסיכויים לקבל תשומת לב ממעסיקים.</li>
-      <li><u>לא להתפשר</u>: חשוב לדעת את ערך השוק שלכם **ולא להתפשר** על שכר נמוך או תפקידים שלא מעניינים אתכם, אך גם אם מתחילים בתפקיד שלא בדיוק רציתם, **אפשר להתקדם** לתפקידים אחרים.</li>
+      <li><u>זמן חיפוש עבודה</u>: יש להתחיל לחפש <strong>כמה שיותר מוקדם</strong>, שכן תהליך החיפוש יכול להימשך זמן רב. מומלץ להתחיל לקראת סוף השנה השנייה או השלישית.</li>
+      <li><u>שילוב עבודה ולימודים</u>: עבודה במהלך התואר יכולה לעזור לסטודנטים <strong>לצבור ניסיון</strong>, להקל על הלימודים, ולספק תובנות חדשות. עם זאת, היא יכולה גם <strong>להעמיס</strong> ולכן ייתכן שיהיה צורך לפתוח עוד סמסטר או להתאים את מערכת הלימודים.</li>
+      <li><u>קשרים אישיים</u>: מומלץ לחפש עבודה דרך אנשים מהתעשייה ולא רק להגיש קורות חיים דרך אתרים. <strong>קשרים אישיים</strong> מעלים את הסיכויים לקבל תשומת לב ממעסיקים.</li>
+      <li><u>לא להתפשר</u>: חשוב לדעת את ערך השוק שלכם <strong>ולא להתפשר</strong> על שכר נמוך או תפקידים שלא מעניינים אתכם, אך גם אם מתחילים בתפקיד שלא בדיוק רציתם, <strong>אפשר להתקדם</strong> לתפקידים אחרים.</li>
       <li><u>התמדה והקרבה</u>: יש להיות מוכנים להשקיע זמן ומאמץ, במיוחד בהתחלה, כדי להצליח להשתלב בתעשייה.</li>
-      <li><u>ניסיון הוא מפתח</u>: **חשוב לצבור ניסיון** גם אם התפקיד הראשוני אינו חלומי. יש ערך לכל עבודה, אפילו בעבודות סטודנט, והניסיון שנצבר יכול לסייע בהמשך הקריירה.</li>
-      <li><u>ניהול תהליך החיפוש</u>: חיפוש עבודה הוא תהליך שיש לנהל באופן **מסודר ועקבי**, כולל שימוש בטבלאות לניהול הגשות קורות חיים ולמעקב אחרי סטטוס המשרות.</li>
-      <li><u>כלים לראיונות ועבודה</u>: **הכנה טובה לראיונות** חשובה מאוד, ויש להשקיע זמן בלמידת החומר הראשוני בעבודה.</li>
-      <li><u>פלטפורמות לחיפוש עבודה</u>: **לינקדאין** היא פלטפורמה מומלצת מאוד לחיפוש עבודה וליצירת קשרים.</li>
-      <li><u>איזון בין עבודה ללימודים</u>: עבודה יכולה להיות תורמת גם לשיפור בציונים, אך יש **לשים לב לעומס** ולוודא שהמשרה לא משפיעה לרעה על הלימודים.</li>
-      <li><u>הכנה לראיונות וקורות חיים</u>: חשוב **להכין קורות חיים מסודרים**, ללא אלמנטים מיותרים, ולהתכונן לראיונות כמו למבחן.</li>
+      <li><u>ניסיון הוא מפתח</u>: <strong>חשוב לצבור ניסיון</strong> גם אם התפקיד הראשוני אינו חלומי. יש ערך לכל עבודה, אפילו בעבודות סטודנט, והניסיון שנצבר יכול לסייע בהמשך הקריירה.</li>
+      <li><u>ניהול תהליך החיפוש</u>: חיפוש עבודה הוא תהליך שיש לנהל באופן <strong>מסודר ועקבי</strong>, כולל שימוש בטבלאות לניהול הגשות קורות חיים ולמעקב אחרי סטטוס המשרות.</li>
+      <li><u>כלים לראיונות ועבודה</u>: <strong>הכנה טובה לראיונות</strong> חשובה מאוד, ויש להשקיע זמן בלמידת החומר הראשוני בעבודה.</li>
+      <li><u>פלטפורמות לחיפוש עבודה</u>: <strong>לינקדאין</strong> היא פלטפורמה מומלצת מאוד לחיפוש עבודה וליצירת קשרים.</li>
+      <li><u>איזון בין עבודה ללימודים</u>: עבודה יכולה להיות תורמת גם לשיפור בציונים, אך יש <strong>לשים לב לעומס</strong> ולוודא שהמשרה לא משפיעה לרעה על הלימודים.</li>
+      <li><u>הכנה לראיונות וקורות חיים</u>: חשוב <strong>להכין קורות חיים מסודרים</strong>, ללא אלמנטים מיותרים, ולהתכונן לראיונות כמו למבחן.</li>
     </ul>
   </div>
 
@@ -158,71 +166,89 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
   <script>
-    Chart.register(ChartDataLabels);
+Chart.register(ChartDataLabels);
 
-    const commonOptions = {
-      indexAxis: 'x',
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        datalabels: {
-          color: 'black',
-          anchor: 'end',
-          align: 'end',
-          offset: 4,
-          font: { weight: 'bold', size: 14 },
-          formatter: (value) => value + '%'
-        }
-      },
-      scales: {
-        x: { 
-          grid: {
-            display: false
+const commonOptions = {
+  indexAxis: 'x',
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: { display: false },
+    datalabels: {
+      color: 'black',
+      offset: 4,
+      font: { weight: 'bold', size: 14 },
+      formatter: (value) => value + '%'
+    }
+  },
+  scales: {
+    x: {
+      grid: { display: false },
+      ticks: {
+        font: { size: 16 }, // Increased font size for x-axis labels
+        color: 'black',
+        maxRotation: 0, // Keep labels horizontal
+        minRotation: 0, // Prevent rotation
+        autoSkip: false, // Show all labels
+        callback: function(value) {
+          // Simulating text wrapping by splitting label into multiple lines
+          const label = this.getLabelForValue(value);
+          const maxCharsPerLine = 10; // Max characters per line
+          if (label.length <= maxCharsPerLine) {
+            return label;
           }
-        },
-        y: {
-          beginAtZero: true,
-          grid: {
-            display: false
-          },
-          ticks: {
-            font: { size: 15 },
-            color: 'black'
-          }
-        }
-      },
-      layout: { padding: { top: 20, bottom: 20 } }
-    };
-
-    function createChart(id, labels, data, options = {}) {
-      return new Chart(document.getElementById(id), {
-        type: 'bar',
-        data: {
-          labels: labels,
-          datasets: [{
-            data: data,
-            backgroundColor: ['#a9cf44', '#f6c413', '#f29a20', '#59c9e9', '#247ba0', '#a9cf44', '#f6c413', '#f29a20'],
-            borderColor: '#fff',
-            borderWidth: 2
-          }]
-        },
-        options: {
-          ...commonOptions,
-          ...options,
-          plugins: {
-            ...commonOptions.plugins,
-            ...options.plugins,
-            datalabels: {
-              ...commonOptions.plugins.datalabels,
-              ...options.plugins?.datalabels,
-              align: 'center',
-              anchor: 'center'
+          const words = label.split(' '); // Split label by spaces
+          let line = '';
+          let wrappedLabel = [];
+          for (let word of words) {
+            if (line.length + word.length + 1 <= maxCharsPerLine) {
+              line += word + ' ';
+            } else {
+              wrappedLabel.push(line.trim());
+              line = word + ' ';
             }
           }
+          wrappedLabel.push(line.trim()); // Add remaining text
+          return wrappedLabel; // Return label in multiple lines
         }
-      });
+      }
+    },
+    y: {
+      display: false // Disable y-axis
     }
+  },
+  layout: { padding: { top: 20, bottom: 20 } }
+};
+
+function createChart(id, labels, data, options = {}) {
+  return new Chart(document.getElementById(id), {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: data,
+        backgroundColor: ['#a9cf44', '#f6c413', '#f29a20', '#59c9e9', '#247ba0', '#a9cf44', '#f6c413', '#f29a20'],
+        borderColor: '#fff',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      ...commonOptions,
+      ...options,
+      plugins: {
+        ...commonOptions.plugins,
+        ...options.plugins,
+        datalabels: {
+          ...commonOptions.plugins.datalabels,
+          ...options.plugins?.datalabels,
+          align: 'right',
+          anchor: 'center'
+        }
+      }
+    }
+  });
+}
+
 
     createChart('industryChart', 
       ['Application Specialist', 'אלגורתמיקה', 'יצור', 'ניהול פרויקטים', '(V&V) בדיקות', '(R&D) מחקר ופיתוח', '(Customer Service) שירות לקוחות', '(QA) איכות ורגולציה'],
@@ -275,6 +301,8 @@
               let percentage = (value * 100 / sum).toFixed(0) + "%";
               return percentage;
             },
+            align: 'right',
+            offset: 10
           }
         },
       }
