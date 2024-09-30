@@ -433,56 +433,83 @@ const chart4 = new Chart(ctx9, {
 });
 addDataLabels(chart4);
 
-    // Hebrew text from the image
-    const textItems = [
-        "זמן חיפוש עבודה: יש להתחיל לחפש כמה שיותר מוקדם, שכן תהליך החיפוש יכול להימשך זמן רב. מומלץ להתחיל לקראת סוף השנה השנייה או השלישית.",
-        "שילוב עבודה ולימודים: עבודה במהלך התואר יכולה לעזור לסטודנטים לצבור ניסיון, להקל על הלימודים, ולספק תובנות חדשות. עם זאת, היא יכולה גם להעמיס ולכן ייתכן שיהיה צורך לפתוח עוד סמסטר או להתאים את מערכת הלימודים.",
-        "קשרים אישיים: מומלץ לחפש עבודה דרך אנשים מהתעשייה ולא רק להגיש קורות חיים דרך אתרים. קשרים אישיים מעלים את הסיכויים לקבל תשומת לב ממעסיקים.",
-        "לא להתפשר: חשוב לדעת את ערך השוק שלכם ולא להתפשר על שכר נמוך או תפקידים שלא מעניינים אתכם. גם אם מתחילים בתפקיד שלא בדיוק רציתם, אפשר להתקדם לתפקידים אחרים.",
-        "התמדה והקרבה: יש להיות מוכנים להשקיע זמן ומאמץ, במיוחד בהתחלה, כדי להצליח להשתלב בתעשייה.",
-        "ניסיון הוא מפתח: חשוב לצבור ניסיון גם אם התפקיד הראשוני אינו חלומי. יש ערך לכל עבודה, אפילו בעבודות סטודנט, והניסיון שנצבר יכול לסייע בהמשך הקריירה.",
-        "ניהול תהליך החיפוש: חיפוש עבודה הוא תהליך שיש לנהל באופן מסודר ועקבי, כולל שימוש בטבלאות לניהול הגשות קורות חיים ולמעקב אחרי סטטוס המשרות.",
-        "כלים לראיונות ועבודה: הכנה טובה לראיונות חשובה מאוד, ויש להשקיע זמן בלמידת החומר הראשוני בעבודה.",
-        "פלטפורמות לחיפוש עבודה: לינקדאין היא פלטפורמה מומלצת מאוד לחיפוש עבודה וליצירת קשרים.",
-        "איזון בין עבודה ללימודים: עבודה יכולה להיות תורמת גם לשיפור בציונים, אך יש לשים לב לעומס ולוודא שהמשרה לא משפיעה לרעה על הלימודים.",
-        "הכנה לראיונות וקורות חיים: חשוב להכין קורות חיים מסודרים, ללא אלמנטים מיותרים, ולהתכונן לראיונות כמו למבחן."
-    ];
+// Hebrew text from the image
+const textItems = [
+    "זמן חיפוש עבודה: יש להתחיל לחפש כמה שיותר מוקדם, שכן תהליך החיפוש יכול להימשך זמן רב. מומלץ להתחיל לקראת סוף השנה השנייה או השלישית.",
+    "שילוב עבודה ולימודים: עבודה במהלך התואר יכולה לעזור לסטודנטים לצבור ניסיון, להקל על הלימודים, ולספק תובנות חדשות. עם זאת, היא יכולה גם להעמיס ולכן ייתכן שיהיה צורך לפתוח עוד סמסטר או להתאים את מערכת הלימודים.",
+    "קשרים אישיים: מומלץ לחפש עבודה דרך אנשים מהתעשייה ולא רק להגיש קורות חיים דרך אתרים. קשרים אישיים מעלים את הסיכויים לקבל תשומת לב ממעסיקים.",
+    "לא להתפשר: חשוב לדעת את ערך השוק שלכם ולא להתפשר על שכר נמוך או תפקידים שלא מעניינים אתכם. גם אם מתחילים בתפקיד שלא בדיוק רציתם, אפשר להתקדם לתפקידים אחרים.",
+    "התמדה והקרבה: יש להיות מוכנים להשקיע זמן ומאמץ, במיוחד בהתחלה, כדי להצליח להשתלב בתעשייה.",
+    "ניסיון הוא מפתח: חשוב לצבור ניסיון גם אם התפקיד הראשוני אינו חלומי. יש ערך לכל עבודה, אפילו בעבודות סטודנט, והניסיון שנצבר יכול לסייע בהמשך הקריירה.",
+    "ניהול תהליך החיפוש: חיפוש עבודה הוא תהליך שיש לנהל באופן מסודר ועקבי, כולל שימוש בטבלאות לניהול הגשות קורות חיים ולמעקב אחרי סטטוס המשרות.",
+    "כלים לראיונות ועבודה: הכנה טובה לראיונות חשובה מאוד, ויש להשקיע זמן בלמידת החומר הראשוני בעבודה.",
+    "פלטפורמות לחיפוש עבודה: לינקדאין היא פלטפורמה מומלצת מאוד לחיפוש עבודה וליצירת קשרים.",
+    "איזון בין עבודה ללימודים: עבודה יכולה להיות תורמת גם לשיפור בציונים, אך יש לשים לב לעומס ולוודא שהמשרה לא משפיעה לרעה על הלימודים.",
+    "הכנה לראיונות וקורות חיים: חשוב להכין קורות חיים מסודרים, ללא אלמנטים מיותרים, ולהתכונן לראיונות כמו למבחן."
+];
 
-    // Target the UL element
-    const dynamicList = document.getElementById('dynamic-list');
+const boldWords = ["לינקדאין", "סטודנט", "ניסיון", "קשרים אישיים"];
 
-    // Function to simulate typewriter effect for each list item
-    function typeWriter(text, listItem, delay, callback) {
-        let i = 0;
-        const interval = setInterval(() => {
-            if (i < text.length) {
-                listItem.textContent += text.charAt(i);
-                i++;
+// Target the UL element
+const dynamicList = document.getElementById('dynamic-list');
+
+// Function to apply bold styling to specific words
+function applyBoldStyling(text) {
+    boldWords.forEach(word => {
+        const regex = new RegExp(`\\b${word}\\b`, 'g');
+        text = text.replace(regex, `<span class="bold">${word}</span>`);
+    });
+    return text;
+}
+
+// Function to simulate typewriter effect for each list item
+function typeWriter(text, listItem, delay, callback) {
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < text.length) {
+            if (text.charAt(i) === '<') {
+                // If we encounter a tag, add the entire tag at once
+                const closingBracketIndex = text.indexOf('>', i);
+                listItem.innerHTML += text.substring(i, closingBracketIndex + 1);
+                i = closingBracketIndex + 1;
             } else {
-                clearInterval(interval);
-                if (callback) callback(); // Proceed to next item when typing finishes
+                listItem.innerHTML += text.charAt(i);
+                i++;
             }
-        }, delay);
-    }
-
-    // Function to add items with typewriter effect
-    function addListItemsWithTypewriter() {
-        let currentItemIndex = 0;
-
-        function addNextItem() {
-            if (currentItemIndex < textItems.length) {
-                const listItem = document.createElement('li');
-                dynamicList.appendChild(listItem); // Add empty list item
-                typeWriter(textItems[currentItemIndex], listItem, 20, addNextItem); // Type each letter
-                currentItemIndex++;
-            }
+        } else {
+            clearInterval(interval);
+            if (callback) callback(); // Proceed to next item when typing finishes
         }
+    }, delay);
+}
 
-        addNextItem(); // Start the process
+// Function to add items with typewriter effect and styling
+function addListItemsWithTypewriter() {
+    let currentItemIndex = 0;
+
+    function addNextItem() {
+        if (currentItemIndex < textItems.length) {
+            const listItem = document.createElement('li');
+            dynamicList.appendChild(listItem); // Add empty list item
+            
+            const parts = textItems[currentItemIndex].split(':');
+            let styledText = '';
+            if (parts.length > 1) {
+                styledText = `<span class="bold-underline">${parts[0]}:</span> ${applyBoldStyling(parts.slice(1).join(':'))}`;
+            } else {
+                styledText = applyBoldStyling(textItems[currentItemIndex]);
+            }
+            
+            typeWriter(styledText, listItem, 20, addNextItem); // Type each letter
+            currentItemIndex++;
+        }
     }
 
-    // Start the typewriter effect for the list items
-    addListItemsWithTypewriter();
+    addNextItem(); // Start the process
+}
+
+// Start the typewriter effect for the list items
+addListItemsWithTypewriter();
 };
 
 

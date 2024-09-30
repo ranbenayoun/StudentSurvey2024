@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>סיכום סקר תעשייה סטודנטים יולי 2024</title>
+  <style>
+    title {
+        text-align: center;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      text-align: center;
+    }
+    header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px;
+    }
+    header img {
+      height: 50px;
+      margin-left: 20px;
+    }
+    header h1 {
+      margin-right: auto;
+    }
+    .subtitle {
+      font-size: 20px;
+      color: gray;
+    }
+    .note {
+      font-size: 12px;
+      color: green;
+    }
+    .chart-container {
+      width: 100%;
+      height: 400px;
+      max-width: 1000px;
+      margin: 20px auto;
+    }
+    p {
+      font-size: 18px;
+    }
+    .salary-info {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    .salary-info span {
+      color: green;
+    }
+    .additional-benefits {
+      text-align: right;
+      max-width: 800px;
+      margin: 20px auto;
+      font-size: 16px;
+    }
+    h1 {
+      text-align: center;
+    }
+    h2 {
+      text-align: right;
+    }
+    .student-experiences {
+      text-align: right;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    .student-experiences ul {
+      padding-right: 20px;
+    }
+    .student-experiences li {
+      margin-bottom: 10px;
+    }
+    .thank-you {
+      text-align: left;
+      margin-top: 20px;
+    }
+    @media only screen and (max-width: 600px) {
+      .chart-container {
+        height: 300px;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="BioMedLogoHebColor.png" alt="BioMed Logo">
+    <img src="TechnionIIT Hebrew 3-lines.png" alt="Technion Logo">
+    <h1>סיכום סקר תעשייה סטודנטים יולי 2024</h1>
+  </header>
+
+  <p class="subtitle">מספר עונים: 64</p>
+  <p class="note">*בסקר נכללו תשובות מסטודנטים שעובדים בתעשייה מחוץ למוסד הטכניון בלבד</p>
+
+  <h2>התפלגות תחומי העיסוק</h2>
+  <div class="chart-container"><canvas id="industryChart"></canvas></div>
+
+  <div class="salary-info">
+    <p>שכר ממוצע כללי: ₪ 70 <span>(עליה של 9.4% לעומת סקר 2022)</span></p>
+    <p>שכר חציוני כללי: ₪ 65</p>
+  </div>
+
+  <h2>שכר ממוצע לפי תחום</h2>
+  <div class="chart-container"><canvas id="salaryChart"></canvas></div>
+
+  <div class="additional-benefits">
+    <h3>הטבות נוספות:</h3>
+    <ul>
+      <li>סיבוס/תן ביס (ממוצע ₪ 45 ליום)</li>
+      <li>בונוס שנתי</li>
+      <li>העלאה לאחר כשנה</li>
+      <li>מתנות ליום ההולדת ו/או לחגים</li>
+    </ul>
+  </div>
+
+  <h2>איך מצאת את העבודה?</h2>
+  <div class="chart-container"><canvas id="recruitmentChart"></canvas></div>
+
+  <h2>באיזה סמסטר התחלת לעבוד?</h2>
+  <div class="chart-container"><canvas id="semesterChart"></canvas></div>
+
+  <h2>מספר ימי עבודה בשבוע</h2>
+  <div class="chart-container"><canvas id="workdaysChart"></canvas></div>
+
+  <h2>העבודה מתבצעת מ</h2>
+  <div class="chart-container"><canvas id="workplaceChart"></canvas></div>
+
+  <h2>גודל החברה</h2>
+  <div class="chart-container"><canvas id="companySizeChart"></canvas></div>
+
+  <h2>עד כמה אני מרוצה מהבחירה להתחיל לעבוד תוך כדי הלימודים בפקולטה</h2>
+  <div class="chart-container"><canvas id="satisfactionChart"></canvas></div>
+
+  <h2>סטודנטים משתפים מניסיון (סיכום):</h2>
+  <div class="student-experiences">
+    <ul>
+      <li><u>זמן חיפוש עבודה</u>: יש להתחיל לחפש **כמה שיותר מוקדם**, שכן תהליך החיפוש יכול להימשך זמן רב. מומלץ להתחיל לקראת סוף השנה השנייה או השלישית.</li>
+      <li><u>שילוב עבודה ולימודים</u>: עבודה במהלך התואר יכולה לעזור לסטודנטים **לצבור ניסיון**, להקל על הלימודים, ולספק תובנות חדשות. עם זאת, היא יכולה גם **להעמיס** ולכן ייתכן שיהיה צורך לפתוח עוד סמסטר או להתאים את מערכת הלימודים.</li>
+      <li><u>קשרים אישיים</u>: מומלץ לחפש עבודה דרך אנשים מהתעשייה ולא רק להגיש קורות חיים דרך אתרים. **קשרים אישיים** מעלים את הסיכויים לקבל תשומת לב ממעסיקים.</li>
+      <li><u>לא להתפשר</u>: חשוב לדעת את ערך השוק שלכם **ולא להתפשר** על שכר נמוך או תפקידים שלא מעניינים אתכם, אך גם אם מתחילים בתפקיד שלא בדיוק רציתם, **אפשר להתקדם** לתפקידים אחרים.</li>
+      <li><u>התמדה והקרבה</u>: יש להיות מוכנים להשקיע זמן ומאמץ, במיוחד בהתחלה, כדי להצליח להשתלב בתעשייה.</li>
+      <li><u>ניסיון הוא מפתח</u>: **חשוב לצבור ניסיון** גם אם התפקיד הראשוני אינו חלומי. יש ערך לכל עבודה, אפילו בעבודות סטודנט, והניסיון שנצבר יכול לסייע בהמשך הקריירה.</li>
+      <li><u>ניהול תהליך החיפוש</u>: חיפוש עבודה הוא תהליך שיש לנהל באופן **מסודר ועקבי**, כולל שימוש בטבלאות לניהול הגשות קורות חיים ולמעקב אחרי סטטוס המשרות.</li>
+      <li><u>כלים לראיונות ועבודה</u>: **הכנה טובה לראיונות** חשובה מאוד, ויש להשקיע זמן בלמידת החומר הראשוני בעבודה.</li>
+      <li><u>פלטפורמות לחיפוש עבודה</u>: **לינקדאין** היא פלטפורמה מומלצת מאוד לחיפוש עבודה וליצירת קשרים.</li>
+      <li><u>איזון בין עבודה ללימודים</u>: עבודה יכולה להיות תורמת גם לשיפור בציונים, אך יש **לשים לב לעומס** ולוודא שהמשרה לא משפיעה לרעה על הלימודים.</li>
+      <li><u>הכנה לראיונות וקורות חיים</u>: חשוב **להכין קורות חיים מסודרים**, ללא אלמנטים מיותרים, ולהתכונן לראיונות כמו למבחן.</li>
+    </ul>
+  </div>
+
+  <p class="thank-you">תודה רבה לכלל הסטודנטים שהשתתפו בסקר ובהצלחה לכולם!</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+  <script>
+    Chart.register(ChartDataLabels);
+
+    const commonOptions = {
+      indexAxis: 'x',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: {
+          color: 'black',
+          anchor: 'end',
+          align: 'end',
+          offset: 4,
+          font: { weight: 'bold', size: 14 },
+          formatter: (value) => value + '%'
+        }
+      },
+      scales: {
+        x: { 
+          grid: {
+            display: false
+          }
+        },
+        y: {
+          beginAtZero: true,
+          grid: {
+            display: false
+          },
+          ticks: {
+            font: { size: 15 },
+            color: 'black'
+          }
+        }
+      },
+      layout: { padding: { top: 20, bottom: 20 } }
+    };
+
+    function createChart(id, labels, data, options = {}) {
+      return new Chart(document.getElementById(id), {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            data: data,
+            backgroundColor: ['#a9cf44', '#f6c413', '#f29a20', '#59c9e9', '#247ba0', '#a9cf44', '#f6c413', '#f29a20'],
+            borderColor: '#fff',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          ...commonOptions,
+          ...options,
+          plugins: {
+            ...commonOptions.plugins,
+            ...options.plugins,
+            datalabels: {
+              ...commonOptions.plugins.datalabels,
+              ...options.plugins?.datalabels,
+              align: 'center',
+              anchor: 'center'
+            }
+          }
+        }
+      });
+    }
+
+    createChart('industryChart', 
+      ['Application Specialist', 'אלגורתמיקה', 'יצור', 'ניהול פרויקטים', '(V&V) בדיקות', '(R&D) מחקר ופיתוח', '(Customer Service) שירות לקוחות', '(QA) איכות ורגולציה'],
+      [3, 17, 2, 5, 19, 44, 5, 6]
+    );
+
+    createChart('salaryChart', 
+      ['יצור', 'ניהול פרויקטים', '(V&V) בדיקות', 'Application Specialist', '(QA) איכות ורגולציה', '(Customer Service) שירות לקוחות', '(R&D) מחקר ופיתוח', 'אלגורתמיקה'],
+      [48, 60, 64, 65, 67, 68, 68, 89],
+      {
+        plugins: {
+          datalabels: {
+            formatter: (value) => '₪ ' + value
+          }
+        }
+      }
+    );
+
+    createChart('recruitmentChart', 
+      ['LinkedIn', 'אינסטגרם/פייסבוק/רשתות אחרות', 'אתר החברה', 'חבר מביא חבר (מישהו מתוך החברה)', 'ירידי תעסוקה/אירוח מהתעשיה', 'קבוצת המשרות בווטסאפ', 'שמעתי מחברים'],
+      [29, 6, 3, 29, 10, 14, 10]
+    );
+
+    createChart('semesterChart',
+      ["סמסטר א'/ב'", "סמסטר ג'", "סמסטר ד'", "סמסטר ה'", "סמסטר ו'", "סמסטר ז'", "סמסטר ח'"],
+      [6, 6, 11, 20, 20, 28, 9]
+    );
+
+    new Chart(document.getElementById('workdaysChart'), {
+      type: 'pie',
+      data: {
+        labels: ['יום אחד', 'יומיים', 'שלושה ימים', 'יותר מ-3'],
+        datasets: [{
+          data: [6, 67, 25, 2],
+          backgroundColor: ['#a9cf44', '#f6c413', '#f29a20', '#59c9e9'],
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: true, position: 'right' },
+          datalabels: {
+            color: 'black',
+            font: { weight: 'bold', size: 14 },
+            formatter: (value, ctx) => {
+              let sum = 0;
+              let dataArr = ctx.chart.data.datasets[0].data;
+              dataArr.map(data => { sum += data; });
+              let percentage = (value * 100 / sum).toFixed(0) + "%";
+              return percentage;
+            },
+          }
+        },
+      }
+    });
+
+    createChart('workplaceChart',
+      ['אני עובד/ת רק מהבית', 'עבודה במשרדי החברה בלבד', 'עבודה חלקית מהמשרד וחלקית מהבית'],
+      [5, 58, 38]
+    );
+
+    createChart('companySizeChart',
+      ['מעל 200 עובדים', '101-200 עובדים', '51-100 עובדים', '15-50 עובדים', 'עד 15 עובדים'],
+      [45, 14, 17, 3, 20]
+    );
+
+    createChart('satisfactionChart',
+      ['1', '2', '3', '4', '5'],
+      [0, 0, 6, 38, 56]
+    );
+  </script>
+
+</body>
+</html>

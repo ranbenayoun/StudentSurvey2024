@@ -54,3 +54,28 @@ body {
     text-align: left;
     font-size: 40px;
   }
+
+  b {
+    font-weight: bold;
+    color: #000; /* Optional: Adjust the color of the bold text if needed */
+}
+
+
+
+.bold-underline {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#dynamic-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#dynamic-list li {
+    margin-bottom: 15px;
+}
