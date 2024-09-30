@@ -89,7 +89,13 @@
         max-width: 100%;
       }
       header h1 {
-        font-size: 2em; /* Smaller font size for mobile */
+        font-size: 1em; /* Smaller font size for mobile */
+      }
+      header img {
+        height: 30px; /* Set height to 50% of the original 75px */
+      }
+      .responsive-chart .chartjs-label {
+        font-size: 10px; /* Adjust as needed */
       }
     }
   </style>
@@ -108,7 +114,7 @@
   <p class="note">*בסקר נכללו תשובות מסטודנטים שעובדים בתעשייה מחוץ למוסד הטכניון בלבד</p>
 
   <h2>תחום העבודה</h2>
-  <div class="chart-container"><canvas id="industryChart"></canvas></div>
+  <div class="chart-container"><canvas id="industryChart" class="responsive-chart"></canvas></div>
 
   <div class="salary-info">
     <p>שכר ממוצע כללי: ₪ 70 <span>(עליה של 9.4% לעומת סקר 2022)</span></p>
@@ -180,7 +186,7 @@ const commonOptions = {
     datalabels: {
       color: 'black',
       offset: 4,
-      font: { weight: 'bold', size: 14 },
+      font: { size: window.innerWidth <= 900 ? 5 : 15 }, // Smaller font size for phones
       formatter: (value) => value + '%'
     }
   },
